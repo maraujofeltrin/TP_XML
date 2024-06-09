@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 source cte.sh
 
@@ -23,7 +23,7 @@ then
     if [ -z "$ERRORES" ]
     then 
         echo "todo en condiciones"
-        ./fop-2.9/fop/fop -fo ./fop-2.9/fop/examples/fo/basic/simple.fo -pdf example.pdf 
+        ./fop-2.9/fop/fop -fo ./fop-2.9/fop/examples/fo/basic/simple.fo -pdf example.pdf &> /dev/null
 
     fi
 fi
