@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 source cte.sh
 
@@ -9,21 +9,29 @@ fi
 
 if [ -z "$ERRORES" ]
 then
+    year="$1" 
+    type="$2"
     if [ $1 -lt 2013 ] || [ $1 -gt 2024 ]
     then 
-        year="$1" 
+        
         ERRORES+="<error>Año ${year} inválido.</error>\n"
     fi 
     if [ $2 != "sc" ] && [ $2 != "xf" ] && [ $2 != "cw" ] && [ $2 != "go" ] && [ $2 != "mc" ]
     then
-        type="$2"
+  
         ERRORES+="<error>ETipo ${type} inválido.</error>\n"
     fi
 
     if [ -z "$ERRORES" ]
     then 
-        echo "todo en condiciones"
-        ./fop-2.9/fop/fop -fo ./fop-2.9/fop/examples/fo/basic/simple.fo -pdf example.pdf &> /dev/null
+        curl https://api.sportradar.com/nascar-ot3/${$type}/${$year}/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
+        status = $?
+        curl https://api.sportradar.com/nascar-ot3/${$type}/${$year}/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
+
+        if [ $status -ne 0 ] || [ $? -ne 0]
+        then
+            ERRORES+="<error>Hubo un error al descargar los archivos.</error>\n"
+        fi
 
     fi
 fi
