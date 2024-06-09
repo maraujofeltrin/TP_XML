@@ -34,15 +34,29 @@ then
 fi
 if [ $ERRORES -eq 0 ]
 then 
-    #curl https://api.sportradar.com/nascar-ot3/$type/$year/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml &> /dev/null
-    #status=$?
-    #sleep 2
-    #curl https://api.sportradar.com/nascar-ot3/$type/$year/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml &> /dev/null
-    #if [ $? -ne 0 ] || [ $status -ne 0 ] 
-    #then
-    #    ERRORES=4   #"<error>Hubo un error al descargar los archivos.</error>\n"
-    #fi
-    echo "todo bien"
+    curl https://api.sportradar.com/nascar-ot3/$type/$year/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list_a.xml &> /dev/null
+    status=$?
+    sleep 2
+    curl https://api.sportradar.com/nascar-ot3/$type/$year/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings_a.xml &> /dev/null
+    if [ $? -ne 0 ] || [ $status -ne 0 ] 
+    then
+        ERRORES=4   #"<error>Hubo un error al descargar los archivos.</error>\n"
+        
+        # Remove namespace from drivers_list.xml
+        sed -i 's/<?xml-stylesheet type="text/xsl" charset="UTF-8" href="/xslt/nascar/series-v2.0.xsl"?>' drivers_list_a.xml > drivers_list.xml
+
+        # Remove stylesheet from drivers_list.xml
+        #sed 'xmlns="http://feed.elasticstats.com/schema/nascar/series-v2.0.xsd"' drivers_list-a.xml
+
+        # Remove namespace from drivers_standings.xml
+        #sed 'xmlns="http://feed.elasticstats.com/schema/nascar/standings-v2.0.xsd"' drivers_standings-a.xml > drivers_standings.xml
+
+        # Remove stylesheet from drivers_standings.xml
+        sed -i 's/<?xml-stylesheet type="text/xsl" charset="UTF-8" href="/xslt/nascar/standings-v2.0.xsl"?>' drivers_standings.xml
+
+        
+    fi
+    
 fi
     java net.sf.saxon.Query extract_nascar_data.xq errno=$ERRORES > nascar_data.xml &> /dev/null
     java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
