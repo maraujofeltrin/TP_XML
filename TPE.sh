@@ -24,11 +24,11 @@ then
 
     if [ -z "$ERRORES" ]
     then 
-        curl https://api.sportradar.com/nascar-ot3/${$type}/${$year}/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
-        status = $?
-        curl https://api.sportradar.com/nascar-ot3/${$type}/${$year}/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
-
-        if [ $status -ne 0 ] || [ $? -ne 0]
+        curl https://api.sportradar.com/nascar-ot3/$type/$year/drivers/list.xml?api_key=${SPORTRADAR_API} -o drivers_list.xml
+        status=$?
+        sleep 2
+        curl https://api.sportradar.com/nascar-ot3/$type/$year/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings.xml
+        if [ $? -ne 0 ] || [ $status -ne 0 ] 
         then
             ERRORES+="<error>Hubo un error al descargar los archivos.</error>\n"
         fi
