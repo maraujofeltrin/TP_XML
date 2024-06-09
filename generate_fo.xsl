@@ -16,14 +16,12 @@
             <fo:block line-height="14pt" font-size="10pt" text-align="end">TPE 2024 1Q - Grupo 1</fo:block>
         </fo:static-content>
         <fo:flow flow-name="xsl-region-body">
-            <fo:block space-before.optimum="15pt" space-after.optimum="15pt">
-                <fo:text font-size="14pt">
-                    <fo:text>Drivers for </fo:text>
+            <fo:block font-size="14pt" space-before.optimum="15pt" space-after.optimum="15pt">
+                    Drivers for
                     <xsl:value-of select="/nascar_data/serie_type"/>
-                    <fo:text> for </fo:text>
+                    for
                     <xsl:value-of select="/nascar_data/year"/>
-                    <fo:text> season</fo:text>
-                </fo:text>
+                    season
             </fo:block>
             <fo:table table-layout="fixed" width="100%">
                 <fo:table-column column-number="1" column-width="14%"/>
@@ -35,9 +33,9 @@
                 <fo:table-column column-number="7" column-width="7%"/>
                 <fo:table-column column-number="8" column-width="7%"/>
                 <fo:table-column column-number="9" column-width="7%"/>
-                <fo:table-column column-number="10" column-width="8%"/>
-                <fo:table-column column-number="11" column-width="8%"/>
-                <fo:table-body>
+                <fo:table-column column-number="10" column-width="7%"/>
+                <fo:table-column column-number="11" column-width="7%"/>
+                
                     <fo:table-header border-width="1pt" border-style="solid">
                         <fo:table-row background-color="rgb(215,245,250)">
                         <fo:table-cell>
@@ -73,14 +71,18 @@
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">Completed laps</fo:block>
                         </fo:table-cell>
-                    </fo:table-row></fo:table-header>
+                    </fo:table-row>
+                    </fo:table-header>
+                    <fo:table-body border-style="solid">
+                        <xsl:for-each select="/nascar_data/drivers/driver">
                     <fo:table-row>
+                        
                         <fo:table-cell>
-                            <xsl:for-each select="/nascar_data/drivers/driver">
+                            
                                 <fo:block font-size="8pt" text-align="center">
                                     <xsl:value-of select="full_name"/>
                                 </fo:block>
-                            </xsl:for-each>
+                            
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
@@ -105,38 +107,43 @@
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt"  text-align="center">
-                                <fo:if test="rank -le 3">
-                                    <fo:attribute name="color">green</fo:attribute>
-                                </fo:if>
+                                <xsl:attribute name="color">
+                                    <xsl:choose>
+                                        <xsl:when test="rank &lt;= 3">green</xsl:when>
+                                        <xsl:otherwise>black</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
                                 <xsl:value-of select="rank"/>
                             </fo:block>
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
-                                <xsl:value-of select="season_points"/>
+                                <xsl:value-of select="statistics/season_points"/>
                             </fo:block>
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
-                                <xsl:value-of select="wins"/>
+                                <xsl:value-of select="statistics/wins"/>
                             </fo:block>
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
-                                <xsl:value-of select="poles"/>
+                                <xsl:value-of select="statistics/poles"/>
                             </fo:block>
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
-                                <xsl:value-of select="races_not_finished"/>
+                                <xsl:value-of select="statistics/races_not_finished"/>
                             </fo:block>
                         </fo:table-cell>
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">
-                                <xsl:value-of select="laps_completed"/>
+                                <xsl:value-of select="statistics/laps_completed"/>
                             </fo:block>
                         </fo:table-cell>
+                    
             </fo:table-row>
+        </xsl:for-each>
     </fo:table-body>
 </fo:table>
 </fo:flow>
