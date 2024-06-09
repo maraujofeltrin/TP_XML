@@ -41,7 +41,7 @@ then
             fi
             if [ -z "$ERRORES" ]
             then
-                #aca va lo que sigue del procesamiento xslt
+                java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
                 if [ $? -ne 0 ]
                 then
                     ERRORES+="<error>Error al generar el archivo.fo .</error>\n"
