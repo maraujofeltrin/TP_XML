@@ -10,9 +10,6 @@ dos2unix fop-2.9/* &> /dev/null
 source cte.sh
 
 
-
-
-
 if [ $# -ne 2 ]
 then
     ERRORES=1    # ERRORES = 1 "<error>Cantidad de parametros incorrecta </error>."
@@ -42,22 +39,15 @@ then
     then
         ERRORES=4   #"<error>Hubo un error al descargar los archivos.</error>\n"
         
-        # Remove namespace from drivers_list.xml
-        sed -i 's/<?xml-stylesheet type="text/xsl" charset="UTF-8" href="/xslt/nascar/series-v2.0.xsl"?>' drivers_list_a.xml > drivers_list.xml
-
-        # Remove stylesheet from drivers_list.xml
-        #sed 'xmlns="http://feed.elasticstats.com/schema/nascar/series-v2.0.xsd"' drivers_list-a.xml
-
-        # Remove namespace from drivers_standings.xml
-        #sed 'xmlns="http://feed.elasticstats.com/schema/nascar/standings-v2.0.xsd"' drivers_standings-a.xml > drivers_standings.xml
-
-        # Remove stylesheet from drivers_standings.xml
-        sed -i 's/<?xml-stylesheet type="text/xsl" charset="UTF-8" href="/xslt/nascar/standings-v2.0.xsl"?>' drivers_standings.xml
-
-        
     fi
     
+        sed '/stylesheet/d' drivers_list_a.xml > drivers_list_b.xml
+        sed 's/xmlns="[^"]*"//g' drivers_list_b.xml > drivers_list.xml
+        sed '/stylesheet/d' drivers_standings_a.xml > drivers_standings_b.xml
+        sed 's/xmlns="[^"]*"//g' drivers_standings_b.xml > drivers_standings.xml
+
+        rm drivers_list_a.xml drivers_list_b.xml drivers_standings_a.xml drivers_standings_b.xml
 fi
-    java net.sf.saxon.Query extract_nascar_data.xq errno=$ERRORES > nascar_data.xml &> /dev/null
+    java net.sf.saxon.Query -q:extract_nascar_data.xq errno=$ERRORES -o:nascar_data.xml &> /dev/null
     java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
     ./fop-2.9/fop/fop -fo nascar_page.fo -pdf nascar_report.pdf &> /dev/null
