@@ -37,8 +37,9 @@
                 <fo:table-column column-number="9" column-width="7%"/>
                 <fo:table-column column-number="10" column-width="8%"/>
                 <fo:table-column column-number="11" column-width="8%"/>
-                <fo:table-body border-width="1pt" border-style="solid">
-                    <fo:table-row background-color="rgb(215,245,250)">
+                <fo:table-body>
+                    <fo:table-header border-width="1pt" border-style="solid">
+                        <fo:table-row background-color="rgb(215,245,250)">
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">Name</fo:block>
                         </fo:table-cell>
@@ -72,7 +73,7 @@
                         <fo:table-cell>
                             <fo:block font-size="8pt" text-align="center">Completed laps</fo:block>
                         </fo:table-cell>
-                    </fo:table-row>
+                    </fo:table-row></fo:table-header>
                     <fo:table-row>
                         <fo:table-cell>
                             <xsl:for-each select="/nascar_data/drivers/driver">
