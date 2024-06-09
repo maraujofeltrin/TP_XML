@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <fo:layout-master-set>
+      <fo:simple-page-master master-name="first"
+                              margin-right="1.5cm"
+                              margin-left="1.5cm"
+                              margin-bottom="2cm"
+                              margin-top="1cm"
+                              page-width="21cm"
+                              page-height="29.7cm">
+         <fo:region-body margin-top="1cm"/>
+         <fo:region-before extent="1cm"/>
+         <fo:region-after extent="1.5cm"/>
+      </fo:simple-page-master>
+   </fo:layout-master-set>
+   <fo:page-sequence master-reference="first">
+      <fo:static-content flow-name="xsl-region-before">
+         <fo:block line-height="14pt" font-size="10pt" text-align="end">TPE 2024 1Q - Grupo 1</fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body">
+         <fo:block space-before.optimum="15pt" space-after.optimum="15pt">
+            <fo:text font-size="14pt">
+               <fo:text>Drivers for </fo:text>NASCAR Cup Series<fo:text> for </fo:text>2013<fo:text> season</fo:text>
+            </fo:text>
+         </fo:block>
+         <fo:table table-layout="fixed" width="100%">
+            <fo:table-column column-number="1" column-width="14%"/>
+            <fo:table-column column-number="2" column-width="10%"/>
+            <fo:table-column column-number="3" column-width="10%"/>
+            <fo:table-column column-number="4" column-width="14%"/>
+            <fo:table-column column-number="5" column-width="9%"/>
+            <fo:table-column column-number="6" column-width="8%"/>
+            <fo:table-column column-number="7" column-width="7%"/>
+            <fo:table-column column-number="8" column-width="7%"/>
+            <fo:table-column column-number="9" column-width="7%"/>
+            <fo:table-column column-number="10" column-width="8%"/>
+            <fo:table-column column-number="11" column-width="8%"/>
+            <fo:table-body>
+               <fo:table-header border-width="1pt" border-style="solid">
+                  <fo:table-row background-color="rgb(215,245,250)">
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Name</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Country</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Birth date</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Birth place</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Car manufacturer</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Rank</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Season points</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Wins</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Poles</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Unfinished races</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="8pt" text-align="center">Completed laps</fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-header>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center">Jimmie Johnson</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Matt Kenseth</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kevin Harvick</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kyle Busch</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Dale Earnhardt Jr</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Jeff Gordon</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Clint Bowyer</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Joey Logano</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Greg Biffle</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kurt Busch</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kasey Kahne</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Carl Edwards</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Ryan Newman</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Brad Keselowski</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Jamie McMurray</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Martin Truex Jr</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Paul Menard</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Aric Almirola</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Ricky Stenhouse Jr</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Jeff Burton</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Juan Pablo Montoya</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Marcos Ambrose</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Denny Hamlin</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Casey Mears</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Mark Martin</fo:block>
+                     <fo:block font-size="8pt" text-align="center">David Gilliland</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Danica Patrick</fo:block>
+                     <fo:block font-size="8pt" text-align="center">David Ragan</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Tony Stewart</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Dave Blaney</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Travis Kvapil</fo:block>
+                     <fo:block font-size="8pt" text-align="center">JJ Yeley</fo:block>
+                     <fo:block font-size="8pt" text-align="center">David Reutimann</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Bobby Labonte</fo:block>
+                     <fo:block font-size="8pt" text-align="center">AJ Allmendinger</fo:block>
+                     <fo:block font-size="8pt" text-align="center">David Stremme</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Michael McDowell</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Timmy Hill</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Ken Schrader</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Michael Waltrip</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Scott Speed</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Terry Labonte</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Boris Said</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Ron Fellows</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Alex Kennedy</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Justin Marks</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Scott Riggs</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Victor Gonzalez Jr</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Brian Keselowski</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Tomy Drissi</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Jacques Villeneuve</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Jason Leffler</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Brian Vickers</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Regan Smith</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Austin Dillon</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Elliott Sadler</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Trevor Bayne</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kyle Larson</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Max Papis</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Parker Kligerman</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Josh Wise</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Landon Cassill</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Justin Allgaier</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Owen Kelly</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Joe Nemechek</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Cole Whitt</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Brian Scott</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Tony Raines</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Ryan Truex</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Brendan Gaughan</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Mike Bliss</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Reed Sorenson</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Sam Hornish Jr</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Kevin Swindell</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Blake Koch</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Paulie Harraka</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Johnny Sauter</fo:block>
+                     <fo:block font-size="8pt" text-align="center">Morgan Shepherd</fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center">-</fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center">
+                        <fo:if test="rank -le 3">
+                           <fo:attribute name="color">green</fo:attribute>
+                        </fo:if>
+                     </fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="8pt" text-align="center"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:flow>
+   </fo:page-sequence>
+</fo:root>
