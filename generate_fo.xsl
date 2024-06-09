@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
     <xsl:template match="/">
-<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
     <fo:layout-master-set>
         <fo:simple-page-master master-name="first" margin-right="1.5cm" margin-left="1.5cm" margin-bottom="2cm" margin-top="1cm" page-width="21cm" page-height="29.7cm">
             <fo:region-body margin-top="1cm"/>
@@ -10,11 +10,19 @@
             <fo:region-after extent="1.5cm"/>
         </fo:simple-page-master>
     </fo:layout-master-set>
-    
     <fo:page-sequence master-reference="first">
         <fo:static-content flow-name="xsl-region-before">
             <fo:block line-height="14pt" font-size="10pt" text-align="end">TPE 2024 1Q - Grupo 1</fo:block>
         </fo:static-content>
+
+        <xsl:choose>
+            <xsl:when test="/nascar_data/error">
+                <fo:flow flow-name="xsl-region-body">
+                    <fo:block font-size="10pt" color="red">Error: <xsl:value-of select="/nascar_data/error"/></fo:block>
+                </fo:flow>
+            </xsl:when>
+            <xsl:otherwise>
+        
         <fo:flow flow-name="xsl-region-body">
             <fo:block font-size="14pt" space-before.optimum="15pt" space-after.optimum="15pt">
                     Drivers for
@@ -147,6 +155,8 @@
     </fo:table-body>
 </fo:table>
 </fo:flow>
+</xsl:otherwise>
+</xsl:choose>
 </fo:page-sequence>
 </fo:root>
 </xsl:template>

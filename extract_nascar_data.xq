@@ -1,15 +1,20 @@
 declare option saxon:output "encoding=UTF-16";
 declare option saxon:output "indent=yes";
 declare variable $errno external;
-  
-if ($errno = "1") then
-    <error> The number of parameters must be 2 </error>
-else
-if ($errno = "2") then
-    <error> The year is invalid </error>
-else
-if ($errno = "3") then
-    <error> The type of parameter is invalid </error>
+if($errno != "0") then
+<nascar_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nascar_data.xsd"> 
+        {
+            if ($errno = "1") then
+                <error> The number of parameters must be 2 </error>
+            else if ($errno = "2") then
+                <error> The year is invalid </error>
+            else if ($errno = "3") then
+                <error> The type of parameter is invalid </error>
+            else if ($errno = "4") then
+                <error> Error while downloading files </error>
+            else ()
+        }
+    </nascar_data>
 else
 let $series := doc("drivers_standings.xml")//series
 return
