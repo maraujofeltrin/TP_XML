@@ -12,7 +12,7 @@ source cte.sh
 
 if [ $# -ne 2 ]
 then
-    ERRORES=1    # ERRORES = 1 "<error>Cantidad de parametros incorrecta </error>."
+    ERRORES=1    
 fi
 
 if [ $ERRORES -eq 0 ]
@@ -21,12 +21,12 @@ then
     type="$2"
     if [ $1 -lt 2013 ] || [ $1 -gt 2024 ]
     then 
-        ERRORES=2     #"<error>Año ${year} inválido.</error>\n"
+        ERRORES=2     
     fi 
     if [ $2 != "sc" ] && [ $2 != "xf" ] && [ $2 != "cw" ] && [ $2 != "go" ] && [ $2 != "mc" ]
     then
   
-        ERRORES=3      #"<error>El Tipo ${type} es inválido.</error>\n"
+        ERRORES=3      
     fi
 fi
 if [ $ERRORES -eq 0 ]
@@ -37,7 +37,7 @@ then
     curl https://api.sportradar.com/nascar-ot3/$type/$year/standings/drivers.xml?api_key=${SPORTRADAR_API} -o drivers_standings_a.xml &> /dev/null
     if [ $? -ne 0 ] || [ $status -ne 0 ] 
     then
-        ERRORES=4   #"<error>Hubo un error al descargar los archivos.</error>\n"
+        ERRORES=4  
         
     fi
     
@@ -51,3 +51,10 @@ fi
     java net.sf.saxon.Query -q:extract_nascar_data.xq errno=$ERRORES -o:nascar_data.xml &> /dev/null
     java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
     ./fop-2.9/fop/fop -fo nascar_page.fo -pdf nascar_report.pdf &> /dev/null
+
+    if [ $ERRORES -eq 0 ]
+    then
+        rm drivers_list.xml drivers_standings.xml 
+    fi
+
+    rm nascar_data.xml nascar_page.fo
