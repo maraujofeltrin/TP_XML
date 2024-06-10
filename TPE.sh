@@ -51,3 +51,10 @@ fi
     java net.sf.saxon.Query -q:extract_nascar_data.xq errno=$ERRORES -o:nascar_data.xml &> /dev/null
     java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
     ./fop-2.9/fop/fop -fo nascar_page.fo -pdf nascar_report.pdf &> /dev/null
+
+    if [ $ERRORES -eq 0 ]
+    then
+        rm drivers_list.xml drivers_standings.xml 
+    fi
+
+    rm nascar_data.xml nascar_page.fo
