@@ -32,18 +32,18 @@
 
 ## Uso
 1. Ubicarse en el directorio donde se encuentra el archivo `TPE.sh`
-1.  Ejecutar previamente el comando 
+2.  Ejecutar previamente el comando 
 ```bash
     $> dos2unix ./TPE.sh
  ```
 para asegurar que el archivo este en condiciones de ser ejecutado en bash.
 
-2. Luego, realiza el llamado al archivo `TPE.sh` de la siguiente manera, donde `$year` es el año del que se desean ver los resultados y `$type` es el tipo de competición:
+3. Luego, realiza el llamado al archivo `TPE.sh` de la siguiente manera, donde `$year` es el año del que se desean ver los resultados y `$type` es el tipo de competición:
 ```bash
     $> ./TPE.sh $year $type
  ```
 
-3. Se generará un archivo llamado `nascar_report.pdf` en el directorio donde se encuentran todos los archivos. Tiene 2 salidas posibles:
+4. Se generará un archivo llamado `nascar_report.pdf` en el directorio donde se encuentran todos los archivos. Tiene 2 salidas posibles:
     - Una tabla con los resultados de la información solicitada. 
     - Un mensaje de error que indica el fallo.   
 
