@@ -14,7 +14,7 @@
     - Java JDK 11 o superior.
 
 ## Instalación
-- Descomprime la carpeta `TPE_G1.zip` en el directorio donde se desea obtener el archivo PDF resultante. 
+- Mueva los archivos al directorio donde desee obtener el PDF. 
 - Si no tienes los softwares mencionados anteriormente instalados en tu sistema, puedes descargarlos e instalarlos siguiendo estos pasos:
 
   1. ```bash 
