@@ -46,7 +46,7 @@ then
         sed '/stylesheet/d' drivers_standings_a.xml > drivers_standings_b.xml
         sed 's/xmlns="[^"]*"//g' drivers_standings_b.xml > drivers_standings.xml
 
-        rm drivers_list_a.xml drivers_list_b.xml drivers_standings_a.xml drivers_standings_b.xml
+        rm drivers_list_a.xml drivers_list_b.xml drivers_standings_a.xml drivers_standings_b.xml &> /dev/null
 fi
     java net.sf.saxon.Query -q:extract_nascar_data.xq errno=$ERRORES -o:nascar_data.xml &> /dev/null
     java net.sf.saxon.Transform -s:nascar_data.xml -xsl:generate_fo.xsl -o:nascar_page.fo &> /dev/null
@@ -54,7 +54,7 @@ fi
 
     if [ $ERRORES -eq 0 ]
     then
-        rm drivers_list.xml drivers_standings.xml 
+        rm drivers_list.xml drivers_standings.xml &> /dev/null
     fi
 
-    rm nascar_data.xml nascar_page.fo
+    rm nascar_data.xml nascar_page.fo &> /dev/null
